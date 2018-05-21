@@ -1,11 +1,14 @@
 package models;
 
+import java.util.ArrayList;
+
 public class Parcel {
-    int length;
-    int width;
-    int height;
-    int weight;
-    int volume;
+    public int length;
+    public int width;
+    public int height;
+    public int weight;
+    public int volume;
+    public double cost;
 
 
     public Parcel(int length, int width, int height, int weight){
@@ -14,29 +17,31 @@ public class Parcel {
         this.height = height;
         this.weight = weight;
         this.volume = length * width * height;
+        this.cost = 0.00;
     }
 
     public double costToShip(String speed){
         if (speed.equals("standard")){
             if (this.volume <= 2000 && this.weight <= 100){
-                return this.volume * .01;
+                return this.cost = this.volume * .01;
             } else if (this.volume <= 2000 && this.weight > 100){
-                return this.volume * .02;
+                return this.cost = this.volume * .02;
             } else if (this.volume > 2000 && this.weight <= 100){
-                return this.volume * .03;
+                return this.cost = this.volume * .03;
             } else {
-                return this.volume * .04;
+                return this.cost = this.volume * .04;
             }
         } else {
             if (this.volume <= 2000 && this.weight <= 100) {
-                return this.volume * .03;
+                return this.cost = this.volume * .03;
             } else if (this.volume <= 2000 && this.weight > 100) {
-                return this.volume * .06;
+                return this.cost = this.volume * .06;
             } else if (this.volume > 2000 && this.weight <= 100) {
-                return this.volume * .09;
+                return this.cost = this.volume * .09;
             } else {
-                return this.volume * .12;
+                return this.cost = this.volume * .12;
             }
         }
     }
+
 }
