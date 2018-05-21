@@ -16,6 +16,9 @@ public class App {
             try{
                 System.out.println("Please select a shipping method: standard or priority");
                 String userSpeed = bufferedReader.readLine();
+                System.out.println("Would you like to have the package gift wrapped? - yes or no");
+                String userWrapOption = bufferedReader.readLine();
+
                 if(userSpeed.equals("standard") || userSpeed.equals("priority")){
                     System.out.println("Please enter package length in inches");
                     int userLength = Integer.parseInt(bufferedReader.readLine());
@@ -26,7 +29,9 @@ public class App {
                     System.out.println("Please enter package weight in ounces");
                     int userWeight = Integer.parseInt(bufferedReader.readLine());
                     Parcel userParcel = new Parcel(userLength, userWidth, userHeight, userWeight);
+
                     userParcel.costToShip(userSpeed);
+                    userParcel.giftWrap(userWrapOption);
                     allParcels.add(userParcel);
 
 

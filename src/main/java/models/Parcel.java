@@ -44,4 +44,12 @@ public class Parcel {
         }
     }
 
+    public double giftWrap(String option){
+        if (option.equals("yes")) {
+            return this.cost += ((this.length * 2) + (this.height * 2) + (this.width * 2)) * 0.02;
+        } else {
+            return this.cost;
+        }
+    }
+
 }
