@@ -36,10 +36,28 @@ public class App {
 
 
                     System.out.println("That package costs $" + userParcel.cost + " to ship.");
+                    System.out.println("___________________________________________");
+                    System.out.println("Would you like a receipt? - yes or no");
+                    String userReceipt = bufferedReader.readLine();
+                    if (userReceipt.equals("yes")) {
+                        double total = 0.00;
+                        for (Parcel individualParcel : allParcels) {
+                            System.out.println("___________________________________________");
+                            System.out.println(individualParcel.volume + " cubic inches");
+                            System.out.println(individualParcel.weight + " ounces");
+                            System.out.println("$" + individualParcel.cost);
+                            total+=individualParcel.cost;
+                        }
+                        System.out.println("___________________________________________");
+                        System.out.println("Total: $" + total);
+                    }
 
-
-//                    System.out.println("Your total cost is  $" +  + " for shipping.");
-
+                    System.out.println("___________________________________________");
+                    System.out.println("Would you like to ship another package? - yes or no");
+                    String userContinue = bufferedReader.readLine();
+                    if (userContinue.equals("no")) {
+                        programRunning = false;
+                    }
                 } else  {
                     System.out.println("Sorry, that's not a valid choice. Please try again.");
                 }
